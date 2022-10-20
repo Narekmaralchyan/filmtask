@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React, { memo, useContext } from 'react'
 import { DataContext } from '../../App';
 import TendingNowItems from '../TendingNowItems'
 import './style.css'
 
-export default function TendingNow() {
+ function TendingNow() {
 
   const {TendingNow}  = useContext(DataContext).state
 
@@ -18,3 +18,4 @@ export default function TendingNow() {
     </div>
   )
 }
+export default TendingNow

@@ -1,4 +1,4 @@
-import { createContext ,useEffect,useReducer} from 'react';
+import { createContext ,useCallback,useEffect,useReducer} from 'react';
 import './App.css';
 import Menu from './Components/Menu';
 import MovieApp from './Components/MovieApp';
@@ -13,29 +13,30 @@ export const DataContext = createContext(initialState)
 function App() {
 
   const [state,dispatch] = useReducer(reducer,initialState)
-  
+
   useEffect(()=>{
     if(sessionStorage.getItem("lastUrl")){
       loadLastClicked(sessionStorage.getItem("lastUrl"))
     }
   },[])
     
-    function changeFeatured(film){
+    const changeFeatured = useCallback ((film)=>{
       dispatch({
         type:ACTION_TYPES.CHANGE_FEATURED,
         payload:{
             film:film,
         }
       })
-    }
-    function loadLastClicked(url){
+    },[])
+    const loadLastClicked = useCallback((url)=>{
       dispatch({
         type:ACTION_TYPES.LOAD_LAST_CLICKED,
         payload:{
           url:url
         }
       })
-    }
+    },[])
+  
 
   return (
     <div className="App">
