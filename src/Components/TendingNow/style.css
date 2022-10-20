@@ -1,0 +1,14 @@
+#TendingNow{
+    display: flex;
+    overflow-x: scroll;
+    justify-content: space-between;
+    width: 93vw;
+    gap: 10px;
+    background-color: black;
+}
+.tendingImages{
+  width: 150px;
+}
+#TendingNow::-webkit-scrollbar {
+  display: none;
+}
