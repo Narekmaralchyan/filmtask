@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { memo, useRef, useState } from 'react'
 import "./style.css"
 
-export default function Menu() {
+  function Menu() {
   const menuRef = useRef("")
-
+console.log("rendering");
   const [hover,setHover] = useState(false)
   
   function hoverHandle(){
@@ -17,7 +17,7 @@ export default function Menu() {
       {
         hover?
         <div className='user'>
-          <img className='userAvatar' />
+          <img  alt="userAvatar" className='userAvatar' />
           <span className='userName'>John Smith</span>
         </div>
         :
@@ -25,27 +25,27 @@ export default function Menu() {
       }
       <div className='manageButtons'>
         <div>
-          <img id='Search' src='assets/icons/ICON - Search.png' />
+          <img id='Search' alt="Search" src='assets/icons/ICON - Search.png' />
           {hover?<span>Search</span>:""}
         </div>
         <div>
-          <img id='Home' src='assets/icons/Group 46.png'/>
+          <img id='Home'  alt="Home"src='assets/icons/Group 46.png'/>
           {hover?<span>Home</span> :""}
         </div>
         <div>
-          <img id='TV shows'src='assets/icons/Group 56.png' />
+          <img id='TV shows' alt="TV shows" src='assets/icons/Group 56.png' />
           {hover?<span>TV shows</span> :""}
         </div>
         <div>
-          <img id='Movies' src='assets/icons/Group 54.png' />
+          <img id='Movies' alt="Movies" src='assets/icons/Group 54.png' />
           {hover?<span>Movies</span> :""}
         </div>
         <div>
-          <img id='Genres' src='assets/icons/Group 53.png' />
+          <img id='Genres' alt="Genres" src='assets/icons/Group 53.png' />
           {hover?<span>Genres</span>:""}
         </div>
         <div>
-          <img id='watchLater' src='assets/icons/Group 47.png' />
+          <img id='watchLater'  alt="watchLater" src='assets/icons/Group 47.png' />
           {hover?<span>Watch Later</span> :""}
         </div>
       </div>
@@ -60,3 +60,4 @@ export default function Menu() {
     </div>
   )
 }
+export default memo(Menu)
